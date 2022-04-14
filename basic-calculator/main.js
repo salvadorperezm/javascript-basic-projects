@@ -4,6 +4,7 @@ const resultsContainer = document.querySelector(".results-container");
 let num = 0;
 let newNumber = 0;
 let currentOperation = "";
+let errorActivation = false;
 
 function equalsButtonOperation() {
     switch (currentOperation) {
@@ -30,6 +31,7 @@ function equalsButtonOperation() {
 
             if (newNumber === 0) {
                 resultsContainer.textContent = "Error";
+                errorActivation = true;
             } else {
                 num /= newNumber;
                 resultsContainer.textContent = num;
@@ -51,7 +53,13 @@ buttonsContainer.addEventListener("click", (e) => {
             break;
 
         case "input":
-            resultsContainer.textContent += e.target.textContent;
+            if (errorActivation === false) {
+                resultsContainer.textContent += e.target.textContent;
+            } else {
+                errorActivation = false;
+                resultsContainer.textContent = "";
+                resultsContainer.textContent += e.target.textContent;
+            }
             break;
 
         case "sum":
