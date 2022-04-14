@@ -60,3 +60,7 @@ html {
   background-color: var(--solid-grey);
   color: var(--solid-black);
 }
+
+.button.pressed {
+  background-color: var(--primary-color-light);
+}

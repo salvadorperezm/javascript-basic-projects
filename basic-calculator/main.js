@@ -7,6 +7,7 @@ let currentOperation = "";
 let errorActivation = false;
 
 function equalsButtonOperation() {
+    
     switch (currentOperation) {
         case "sum":
             newNumber = Number(resultsContainer.textContent);
