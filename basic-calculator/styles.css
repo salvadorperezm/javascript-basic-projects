@@ -19,18 +19,29 @@ html {
   --solid-black: hsl(0, 0%, 0%);
 }
 
+.container {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .calculator {
-  max-width: 400px;
+  width: 400px;
   margin: 0 auto;
-  border: 1px solid var(--solid-grey);
+  border-radius: 10px;
   overflow: hidden;
 }
 
 .calculator__display {
   height: 80px;
   background-color: var(--solid-black);
+  border: 1px solid var(--solid-grey);
+  border-radius: 10px 10px 0px 0px;
   color: var(--solid-white);
-  font-size: 30px;
+  font-size: 40px;
+  padding-inline: 10px;
 
   display: flex;
   justify-content: flex-end;
@@ -60,7 +71,12 @@ button {
 .key--equal {
   background-color: var(--secondary-color);
   color: var(--solid-white);
+  border-radius: 0px 0px 10px 0px;
 
   grid-column: 4 / 5;
   grid-row: 2 / 6;
+}
+
+.key--zero {
+  border-radius: 0px 0px 0px 10px;
 }
