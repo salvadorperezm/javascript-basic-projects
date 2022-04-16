@@ -13,54 +13,54 @@ html {
 :root {
   --primary-color: hsl(226, 94%, 32%);
   --primary-color-light: hsl(226, 94%, 72%);
+  --secondary-color: hsl(25, 97%, 55%);
   --solid-white: hsl(36, 0%, 100%);
   --solid-grey: hsl(136, 0%, 88%);
   --solid-black: hsl(0, 0%, 0%);
 }
 
-
-
-.main-container {
-  max-width: 250px;
-  padding: 20px;
+.calculator {
+  max-width: 400px;
   margin: 0 auto;
-  border: 1px solid black;
+  border: 1px solid var(--solid-grey);
+  overflow: hidden;
 }
 
-.results-container {
-  height: 50px;
-  margin-block-end: 20px;
-  background-color: var(--solid-grey);
-}
+.calculator__display {
+  height: 80px;
+  background-color: var(--solid-black);
+  color: var(--solid-white);
+  font-size: 30px;
 
-.buttons-container {
   display: flex;
-  flex-direction: column;
-  row-gap: 5px;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
+.calculator__keys {
+  height: 350px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
-.button {
-  padding: 15px 20px;
-  border-radius: 50%;
-  border: none;
+button {
+  font-size: 20px;
+  background-color: var(--solid-white);
+  color: var(--solid-black);
+  border: 1px solid var(--solid-grey);
   cursor: pointer;
 }
 
-.button.operations {
+.key--operation {
   background-color: var(--primary-color);
   color: var(--solid-white);
 }
 
-.button.numbers {
-  background-color: var(--solid-grey);
-  color: var(--solid-black);
-}
+.key--equal {
+  background-color: var(--secondary-color);
+  color: var(--solid-white);
 
-.button.pressed {
-  background-color: var(--primary-color-light);
+  grid-column: 4 / 5;
+  grid-row: 2 / 6;
 }
