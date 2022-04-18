@@ -1,73 +1,58 @@
 const calcDisplay = document.querySelector(".calculator__display");
 const calcKeys = document.querySelector(".calculator__keys");
 
-let currentOperation = null;
-let num = 0;
+let currentOperation = "";
 
-
-function currentOperationHandler(currentOperation) {
-    switch (currentOperation) {
-        case "sum":
-            num += Number(calcDisplay.textContent);
-            calcDisplay.textContent = num;
-            break;
-
-        case "substraction":
-            num -= Number(calcDisplay.textContent);
-            calcDisplay.textContent = num;
-            break;
+function inputHandler(e) {
+    if (calcDisplay.textContent === "0") {
+        calcDisplay.textContent = "";
+        calcDisplay.textContent += e.target.textContent;
+    } else {
+        calcDisplay.textContent += e.target.textContent;
     }
+    console.log(e.target.textContent);
 }
 
+function operationHandler() {
+    
+}
 
 calcKeys.addEventListener("click", (e) => {
     const keyAction = e.target.getAttribute("data-action");
-    console.log(keyAction);
-    
-    switch (keyAction) {
-        case "clear":
-            calcDisplay.textContent = "0";
-            num = 0;
-            currentOperation = null;
+
+   switch (keyAction) {
+       case null:
+           inputHandler(e);
+           break;
+        
+        case "decimal":
+            calcDisplay.textContent += ".";
+            console.log(e.target.textContent);
             break;
-
-        case null:
-            if (currentOperation === null) {
-                if (calcDisplay.textContent === "0") {
-                calcDisplay.textContent = "";
-                calcDisplay.textContent += e.target.textContent;
-                } else {
-                    calcDisplay.textContent += e.target.textContent;
-                }
-
-            } else {
-                if (keyAction !== "sum" || keyAction !== "substraction" || keyAction !== "division" || keyAction !== "multiplication") {
-                    calcDisplay.textContent += e.target.textContent;
-                } else if (keyAction === "sum" || keyAction === "substraction" || keyAction === "division" || keyAction === "multiplication"){
-                    currentOperationHandler(currentOperation);
-                    currentOperation = keyAction;
-                }
-            }
+        
+        case "clear":
+            currentOperation = "";
+            calcDisplay.textContent = "0";
             break;
 
         case "sum":
-            num = Number(calcDisplay.textContent);
-            calcDisplay.textContent = "";
-            currentOperation = "sum";
+            currentOperation = keyAction;
+            console.log(currentOperation);
             break;
 
         case "substraction":
-            num = Number(calcDisplay.textContent);
-            calcDisplay.textContent = "";
-            currentOperation = "substraction";
+            currentOperation = keyAction;
+            console.log(currentOperation);
             break;
 
-        case "decimal":
-            calcDisplay.textContent += ".";
+        case "division":
+            currentOperation = keyAction;
+            console.log(currentOperation);
             break;
 
-        case "calculate":
-            currentOperationHandler(currentOperation);
+        case "multiplication":
+            currentOperation = keyAction;
+            console.log(currentOperation);
             break;
-    }
+   }
 });

@@ -12,8 +12,8 @@ html {
 
 :root {
   --primary-color: hsl(226, 94%, 32%);
-  --primary-color-light: hsl(226, 94%, 72%);
   --secondary-color: hsl(25, 97%, 55%);
+  --tertiary-color: hsl(352, 60%, 55%);
   --solid-white: hsl(36, 0%, 100%);
   --solid-grey: hsl(136, 0%, 88%);
   --solid-black: hsl(0, 0%, 0%);
