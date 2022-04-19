@@ -3,56 +3,41 @@ const calcKeys = document.querySelector(".calculator__keys");
 
 let currentOperation = "";
 
-function inputHandler(e) {
-    if (calcDisplay.textContent === "0") {
-        calcDisplay.textContent = "";
-        calcDisplay.textContent += e.target.textContent;
-    } else {
-        calcDisplay.textContent += e.target.textContent;
-    }
-    console.log(e.target.textContent);
-}
-
-function operationHandler() {
-    
-}
 
 calcKeys.addEventListener("click", (e) => {
     const keyAction = e.target.getAttribute("data-action");
 
-   switch (keyAction) {
-       case null:
-           inputHandler(e);
-           break;
-        
+    switch (keyAction) {
         case "decimal":
             calcDisplay.textContent += ".";
-            console.log(e.target.textContent);
             break;
         
         case "clear":
-            currentOperation = "";
             calcDisplay.textContent = "0";
+            currentOperation = "";
             break;
 
-        case "sum":
-            currentOperation = keyAction;
-            console.log(currentOperation);
+        case "calculate":
+            console.log("You hit the calculate key");
             break;
 
-        case "substraction":
-            currentOperation = keyAction;
-            console.log(currentOperation);
+        case "number":
+           if (currentOperation === "") {
+                if (calcDisplay.textContent === "0") {
+                    calcDisplay.textContent = "";
+                    calcDisplay.textContent += e.target.textContent;
+                } else {
+                    calcDisplay.textContent += e.target.textContent;
+                }
+            } else {
+                const n1 = Number(calcDisplay.textContent);
+                calcDisplay.textContent = "0";
+            }
             break;
+        
+        default:
+            currentOperation = keyAction;
+            break;
+    }
 
-        case "division":
-            currentOperation = keyAction;
-            console.log(currentOperation);
-            break;
-
-        case "multiplication":
-            currentOperation = keyAction;
-            console.log(currentOperation);
-            break;
-   }
 });
