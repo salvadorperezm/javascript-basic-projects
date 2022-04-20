@@ -3,6 +3,13 @@ const calcKeys = document.querySelector(".calculator__keys");
 
 let currentOperation = "";
 
+function inputNumberHandler(e) {
+    if (calcDisplay.textContent === "0") {
+        calcDisplay.textContent = e.target.textContent;
+    } else {
+        calcDisplay.textContent += e.target.textContent;
+    }
+}
 
 calcKeys.addEventListener("click", (e) => {
     const keyAction = e.target.getAttribute("data-action");
@@ -23,15 +30,10 @@ calcKeys.addEventListener("click", (e) => {
 
         case "number":
            if (currentOperation === "") {
-                if (calcDisplay.textContent === "0") {
-                    calcDisplay.textContent = "";
-                    calcDisplay.textContent += e.target.textContent;
-                } else {
-                    calcDisplay.textContent += e.target.textContent;
-                }
+                inputNumberHandler(e);
             } else {
                 const n1 = Number(calcDisplay.textContent);
-                calcDisplay.textContent = "0";
+                inputNumberHandler(e);
             }
             break;
         
