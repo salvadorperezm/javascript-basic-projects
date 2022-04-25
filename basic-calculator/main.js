@@ -11,6 +11,7 @@ function inputNumberHandler(e) {
     }
 }
 
+
 calcKeys.addEventListener("click", (e) => {
     const keyAction = e.target.getAttribute("data-action");
 
@@ -22,23 +23,21 @@ calcKeys.addEventListener("click", (e) => {
         case "clear":
             calcDisplay.textContent = "0";
             currentOperation = "";
+            n1 = 0;
+            n2 = 0;
+            operationCounter = 0;
             break;
 
         case "calculate":
-            console.log("You hit the calculate key");
+            console.log("you hit the calculate button");
             break;
 
         case "number":
-           if (currentOperation === "") {
-                inputNumberHandler(e);
-            } else {
-                const n1 = Number(calcDisplay.textContent);
-                inputNumberHandler(e);
-            }
+            inputNumberHandler(e);
             break;
         
         default:
-            currentOperation = keyAction;
+            console.log(`Current operation: ${keyAction}`);
             break;
     }
 
