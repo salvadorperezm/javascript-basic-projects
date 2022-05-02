@@ -66,9 +66,6 @@ calcKeys.addEventListener("click", (e) => {
             break;
 
         case "calculate":
-            console.log(`Base number: ${baseNumber}`);
-            console.log(`Current operation: ${storedOperation}`);
-            console.log(`Operation number: ${Number(calcDisplay.textContent)}`);
             operationHandler(baseNumber, storedOperation, Number(calcDisplay.textContent));
             break;
 
@@ -89,11 +86,11 @@ calcKeys.addEventListener("click", (e) => {
                 storedOperation = keyAction;
                 operationCounter++;
             } else {
-                // if there's an active operation, it must complete first
-                console.log(`Base number: ${baseNumber}`);
-                console.log(`Current operation: ${storedOperation}`);
-                console.log(`Operation number: ${Number(calcDisplay.textContent)}`);
-                operationCounter--;
+                operationHandler(baseNumber, currentOperation, Number(calcDisplay.textContent));
+                baseNumber = Number(calcDisplay.textContent);
+                currentOperation = keyAction;
+                storedOperation = keyAction;
+                operationCounter++;
             }
 
             break;

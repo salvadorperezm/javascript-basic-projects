@@ -21,11 +21,10 @@ html {
 
 .container {
   min-height: 100vh;
-  background-color: var(--solid-grey);
+  background-color: var(--solid-white);
 
   display: flex;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
 }
 
@@ -82,18 +81,4 @@ button {
 
 .key--zero {
   border-radius: 0px 0px 0px 10px;
-}
-
-.bottom-text {
-  font-size: 12px;
-  color: var(--solid-white);
-}
-
-.bottom-text__link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.bottom-text__link:hover {
-  text-decoration: underline;
 }
